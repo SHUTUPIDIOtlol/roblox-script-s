@@ -96,7 +96,7 @@ canvas{display:block}
 <div id="eyelidBottom"></div>
 <div id="death">You died.</div>
 <div id="redScreen"></div>
-<img src="Jp.png" id="jpMonster">
+<img src="jp.png" id="jpMonster">
 <div id="angerContainer"><div id="angerBar"></div></div>
 
 <!-- Instructions Modal -->
@@ -107,7 +107,7 @@ canvas{display:block}
   <p>You are in a room. Knock while the entity is knocking, otherwise it'll fill the anger bar.<br>
   You have 0.7 seconds to react.<br>
   Close your eyes when you see it.<br>
-  Check the window to reduce the chance of JP appearing.</p>
+  Check the window to reduce the chance of the girl appearing.</p>
   <label>Cheatcode:</label><br>
   <input type="text" id="cheatInput" placeholder="Type code here...">
  </div>
@@ -176,7 +176,7 @@ box(R,0.1,R,0,3,0,0x1a1a1a);
 
 // ---------- UTILITIES ----------
 function showText(txt){ if(dead) return; textEl.textContent=txt; textEl.style.opacity=1; setTimeout(()=>textEl.style.opacity=0,4000);}
-function spawnGlitchText(){ if(dead) return; let words=["CLOSE YOUR EYES.","TF IS THAT"]; let t=document.createElement("div"); t.className="randomText"; t.textContent=words[Math.floor(Math.random()*words.length)]; t.style.top=Math.random()*100+"%"; t.style.left=Math.random()*100+"%"; t.style.transform=`rotate(${(Math.random()*60-30)}deg)`; document.body.appendChild(t); setTimeout(()=>t.remove(),2000);}
+function spawnGlitchText(){ if(dead) return; let words=["CLOSE YOUR EYES.","EYES","CLOSE","SA@NI!$TY"]; let t=document.createElement("div"); t.className="randomText"; t.textContent=words[Math.floor(Math.random()*words.length)]; t.style.top=Math.random()*100+"%"; t.style.left=Math.random()*100+"%"; t.style.transform=`rotate(${(Math.random()*60-30)}deg)`; document.body.appendChild(t); setTimeout(()=>t.remove(),2000);}
 function updateAngerBar(){angerBar.style.width=((doorDanger/maxDanger)*100)+"%";}
 
 // ---------- ANGER BAR AUTO INCREASE ----------
@@ -203,7 +203,7 @@ function triggerDoorMonsterKnock(){
  knockTimeout=setTimeout(()=>{
    if(dead||eyesClosed) return;
    doorKnockSnd.currentTime=0; doorKnockSnd.play();
-   showText("Entity is knocking!");
+   showText("the bitch is knocking");
    if(!talkCooldown){ talk.currentTime=0; talk.play(); talkCooldown=true; setTimeout(()=>talkCooldown=false,13000);}
  },delay);
 }
@@ -216,7 +216,7 @@ knockBtn.onclick=()=>{
    clearTimeout(knockTimeout);
    doorDanger=0; // only reset if knock sound is playing
    updateAngerBar();
-   showText("You knocked back!");
+   showText("You aurafarmed the entity to scaredment");
  } else showText("No one is knocking.");
 };
 
